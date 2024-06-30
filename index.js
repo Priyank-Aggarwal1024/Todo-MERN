@@ -12,10 +12,13 @@ const path = require("path");
 app.use(cors())
 // app.use(express.static(path.resolve(__dirname, PUBLIC_DIR)))
 app.use(express.json())
-app.use(express.static("public/dist"))
+app.use(express.static(path.resolve(__dirname, PUBLIC_DIR)))
 app.use(express.urlencoded())
 app.use(morgan("common"))
 app.use("/api/task", taskRouter)
+app.use('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, "dist", "index.html"));
+})
 
 
 const main = async () => {
