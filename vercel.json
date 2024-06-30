@@ -1,5 +1,5 @@
 {
-    "dists": [
+    "builds": [
         {
             "src": "index.js",
             "use": "@vercel/node"
@@ -24,7 +24,7 @@
         },
         {
             "src": "/(.+)",
-            "dest": "dist/$1"
+            "dest": "/dist/$1"
         }
     ]
 }
